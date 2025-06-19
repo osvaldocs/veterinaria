@@ -92,7 +92,7 @@ const agregarMascotas = () => mascotas.push(pedirDatosMascota());
 
 
 function buscarMascotaPorNombre(nombre) {
-    let mascotaEncontrada = mascotas.find( mascota => mascota.nombre.toLowerCase() === nombre);
+    let mascotaEncontrada = mascotas.find(mascota => mascota.nombre.toLowerCase() === nombre);
     if (mascotaEncontrada) {
         return mascotaEncontrada;
     } else {
@@ -102,6 +102,7 @@ function buscarMascotaPorNombre(nombre) {
 
 let nombreBuscado = prompt("Ingresa el nombre de la mascota a buscar").toLowerCase();
 console.log(buscarMascotaPorNombre(nombreBuscado));
+
 function mostrarMascota() {
 
 }
