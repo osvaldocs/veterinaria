@@ -121,7 +121,13 @@ function pedirDatosMascota() {
 
 console.log(mascotas);
 
-let opcion = prompt("Bienvenido a la veterinaria Riwi, por favor elegí una opción para continuar:\n\n1: Para registrar una nueva mascota.\n2: Para buscar la mascota por el nombre.\n3: Para verficar mascotas vacunadas.\n4: Para calcular el promedio de edad de las mascotas.\n5: Para ver el registro de mascotas, ordenadas por edad."
+let opcion = prompt(`Bienvenido a la veterinaria Riwi, por favor elegí una opción para continuar:
+    1: Para registrar una nueva mascota.
+    2: Para buscar la mascota por el nombre.
+    3: Para verficar mascotas vacunadas.
+    4: Para calcular el promedio de edad de las mascotas.
+    5: Para ver el registro de mascotas, ordenadas por edad.
+    6: Para salir del programa.`
 )
 
 switch (opcion) {
