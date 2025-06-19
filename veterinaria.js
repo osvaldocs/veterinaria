@@ -91,21 +91,21 @@ let mascotas = [
 const agregarMascotas = () => mascotas.push(pedirDatosMascota());
 
 
-function buscarMascotaPorNombre(nombre) {
-    let mascotaEncontrada = mascotas.find(mascota => mascota.nombre.toLowerCase() === nombre);
-    if (mascotaEncontrada) {
-        return mascotaEncontrada;
-    } else {
-        return "Mascota no encontrada"
-    }
-}
+// function buscarMascotaPorNombre(nombre) {
+//     let mascotaEncontrada = mascotas.find(mascota => mascota.nombre.toLowerCase() === nombre);
+//     if (mascotaEncontrada) {
+//         return mascotaEncontrada;
+//     } else {
+//         return "Mascota no encontrada"
+//     }
+// }
 
-let nombreBuscado = prompt("Ingresa el nombre de la mascota a buscar").toLowerCase();
-console.log(buscarMascotaPorNombre(nombreBuscado));
+// let nombreBuscado = prompt("Ingresa el nombre de la mascota a buscar").toLowerCase();
+// console.log(buscarMascotaPorNombre(nombreBuscado));
 
-function mostrarMascota() {
+// function mostrarMascota() {
 
-}
+// }
 
 function pedirDatosMascota() {
     let nombre = prompt("Ingresá el nombre de tu mascota:");
@@ -117,6 +117,14 @@ function pedirDatosMascota() {
 
 }
 
-agregarMascota();
+
 
 console.log(mascotas);
+
+let opcion = prompt("Bienvenido a la veterinaria Riwi, por favor elegí una opción para continuar:\n\n1: Para registrar una nueva mascota.\n2: Para buscar la mascota por el nombre.\n3: Para verficar mascotas vacunadas.\n4: Para calcular el promedio de edad de las mascotas.\n5: Para ver el registro de mascotas, ordenadas por edad."
+)
+
+switch (opcion) {
+    case "1":
+        agregarMascotas();
+}
