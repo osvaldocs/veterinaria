@@ -83,54 +83,78 @@ let mascotas = [
 
 ]
 
-// function agregarMascota() {
-//     mascotas.push(pedirDatosMascota());    
-// }
 
 
 const agregarMascotas = () => mascotas.push(pedirDatosMascota());
 
 
-// function buscarMascotaPorNombre(nombre) {
-//     let mascotaEncontrada = mascotas.find(mascota => mascota.nombre.toLowerCase() === nombre);
-//     if (mascotaEncontrada) {
-//         return mascotaEncontrada;
-//     } else {
-//         return "Mascota no encontrada"
-//     }
-// }
 
-// let nombreBuscado = prompt("Ingresa el nombre de la mascota a buscar").toLowerCase();
-// console.log(buscarMascotaPorNombre(nombreBuscado));
+const buscarMascotaPorNombre = nombre => {
+    let mascotaEncontrada = mascotas.find(mascota => mascota.nombre.toLowerCase() === nombre);
+    if (mascotaEncontrada) {
+        return mascotaEncontrada;
+    } else {
+        return "Mascota no encontrada"
+    }
+};
 
-// function mostrarMascota() {
+const promedioEdad = mascotas => {
+                let suma = 0;
+                mascotas.forEach(m => suma += m.edad);
+                return (suma / mascotas.length);
+};
 
-// }
+const mascotasVacunadasEncontradas = () => mascotas.filter(mascota => mascota.vacunado);
+
+const mostrarPorEdad = () => mascotas.sort((a, b) => a.edad - b.edad);
 
 function pedirDatosMascota() {
     let nombre = prompt("Ingresá el nombre de tu mascota:");
     let especie = prompt("Ingresá la especie de tu mascota:");
-    let edad = prompt("Ingresá su edad:");
+    let edad = parseInt(prompt("Ingresá su edad:"), 10); // el 10 es un parametro de parseInt para que sepa que la base numerica es decimal
     let estaVacunado = prompt("¿Su mascota está vacunado/a? si / no");
     let vacunado = estaVacunado.toLowerCase() === 'si';
     return {nombre, especie, edad, vacunado}
-
 }
 
 
 
-console.log(mascotas);
 
+while (true) {
 let opcion = prompt(`Bienvenido a la veterinaria Riwi, por favor elegí una opción para continuar:
     1: Para registrar una nueva mascota.
     2: Para buscar la mascota por el nombre.
     3: Para verficar mascotas vacunadas.
     4: Para calcular el promedio de edad de las mascotas.
     5: Para ver el registro de mascotas, ordenadas por edad.
-    6: Para salir del programa.`
-)
+    6: Para salir del programa.`);
 
-switch (opcion) {
-    case "1":
-        agregarMascotas();
+    switch (opcion) {
+
+        case "1":
+            agregarMascotas();
+            break;
+
+        case "2":
+            let nombreBuscado = prompt("Ingresa el nombre de la mascota a buscar").toLowerCase();
+            console.log(buscarMascotaPorNombre(nombreBuscado));
+            break;
+
+        case "3":
+            console.log(mascotasVacunadasEncontradas());
+            break;
+
+        case "4":
+            console.log("El promedio de edad de las mascotas es:", promedioEdad(mascotas));
+            break;
+        case "5":
+            mostrarPorEdad();
+            console.log(mascotas);
+            break;
+
+        case "6":
+            console.log("Gracias por confiar en veterinaria Riwi");
+    }
+
+    if (opcion === "6") break;
 }
